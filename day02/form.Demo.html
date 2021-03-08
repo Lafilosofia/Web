@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>表单</title>
+</head>
+<body>
+	<!-- 1.表单元素:用来声明表单的范围，只有在此范围内的数据，才能够提交给服务器
+	action:声明表单提交目标(地址);method:提交方式(get,post) -->
+	<!-- 2.表单控件:用来输入数据 -->
+	<!-- 2.1:input元素,他们的type属性不同 -->
+	<!-- 文本框:
+		value:设置默认值
+		maxlength:最大长度
+		rendonly:设置只读 -->
+		
+	<p>
+		账号:<input type = "text" value = "abc" maxlength = "10" readonly/>
+	</p>
+	<!-- 密码框 -->
+	<p>
+		密码:<input type = "password"/>
+	</p>
+	
+	<!-- 单选框
+		name:组名，同名的radio就是一组互斥
+		checked:设置默认选中
+		value:提交表单后给服务端提交的数据
+	 -->
+	 <p>
+	 	性别:<input type = "radio"	 value = "1" name = "sex" checked />男
+	 		 <input type = "radio"	 value = "2" name = "sex"  />女
+	 </p>
+	 
+	 <!--多选框
+	 checked:设置默认选中
+	 name:
+	 value: 
+	 -->
+	 
+	 <p>
+	 	兴趣:
+	 	<input type = checkbox/>踢足球
+	 	<input type = "checkbox"/>
+	 	<input type = "checkbox"/>
+	 	<input type = "checkbox"/>
+	 </p>
+</body>
+</html>
