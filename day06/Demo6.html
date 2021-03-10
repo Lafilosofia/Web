@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>图片轮播</title>
+<style type="text/css">
+	div{
+		border: 2px solid red;
+		width: 256px;
+		height: 256px;
+		margin: 30px auto;
+	}
+	
+	.hide{
+		display: none;
+	}
+	
+	div:hover{
+		cursor:point; /*手型样式*/
+	}
+	
+</style>
+</head>
+<script type="text/javascript">
+	//当页面加载后执行此函数
+	window.onload = function(){
+		start();
+	}
+	
+	var id;
+	function start(){
+		var n = 0;
+		var id = setInterval(function(){
+			n ++;
+			//获取所有的img标签
+			var imgs = document.getElementsByTagName("img");
+			//隐藏所有图片
+			for(var i = 0;i < imgs.length;i ++){
+				imgs[i].style.display = "none";
+			}
+			//显示数组中图片的下标	
+			var index = n % imgs.length;
+			//根据下标来显示单个图片
+			//imgs[index],style.display = "inline";
+			imgs[index].className = "";
+			
+		},2000);
+	}
+	
+	
+	function stop(){
+		clearInterval(id);
+	}
+</script>
+<body>
+	<!-- 
+		onmouseover;鼠标悬停事件
+		onmouseout;鼠标离开事件
+	 -->
+	<div onmouseover = "stop()" onmouseout = "start()" >
+		<img src="images/01.png"/>
+		<img class = hide src="images/02.png"/>
+		<img class = hide src="images/03.png"/>
+		<img class = hide src="images/04.png"/>
+		<img class = hide src="images/05.png"/>
+		<img class = hide src="images/06.png"/>
+	
+	
+	
+	
+	</div>
+</body>
+</html>
