@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>动态时钟</title>
+<style type="text/css">
+	#clock{
+	  border: 1px solid red;
+	  width: 200px;
+	  height: 40px;
+	  line-height: 40px;
+	  text-align: center;
+	  font-size: 20px;
+	}
+</style>
+<script type="text/javascript">
+	var id;
+	function start(){
+		//判断id若不为空,说明定时器已经启动,不要再启动
+		if(id != null){
+			return;
+		}
+		//周期性定时器
+			id = setInterval(function(){
+			//获取当前时间
+			var date = new Date();
+			//显示年月日
+			//date.toLacaleDateString();
+			//显示时分秒
+			date = date.toLocaleTimeString();
+			var p = document.getElementById("clock");
+			//将时间写入段落中
+			p.innerHTML = date;
+		}, 1000)	
+	}
+	
+	function stop(){
+		clearInterval(id);//停止执行任务
+		id = null;//清空id
+	}
+</script>
+</head>
+<body>
+	<input type = "button" value = "开始" onclick = "start()"/>
+	<input type = "button" value = "停止" onclick = "start()"/>
+</body>
+</html>
