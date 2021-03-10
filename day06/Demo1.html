@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>内置对象</title>
+</head>
+<script type="text/javascript">
+	//1.String对象
+	var str = "hello";
+	console.log(typeof(str));
+	console.log(str.length);
+	console.log(str.substring(2,5));
+	
+	var str2 = "a,b,c,d";
+	var arry = str2.split(",");
+	console.log(arry);
+	
+	//2.Number
+	var n = 3.1415926;
+	console.log(typeof(n));
+	console.(n.toFixed(2));
+	
+	//3.Array
+	//如何创建数组
+	  var a1 = ["张三",25,"女",false];
+	console.log(a1);
+	for(var i = 0;i < a1.length;i ++){
+		console.log(a1[i]);
+	}
+	
+	//给数组a2添加元素
+	var a2 = new Array();
+	a2.push("李四");
+	a2.pish(28);
+	a2.push('男');
+	console.log(a2);
+	//结论:无论用什么方式创建出来的数组都一样,它们都是
+	//object数组,可以存任意类型的数据
+	
+	//2.倒转方法
+	var arr = [6,1,4,8,2];
+	console.log(arr);
+	arr.reverse();//倒转
+	console.log(arr);
+	//3.排序
+	arr.sort();
+	console.log(arr);
+	var arr2 = [6,1,14,8,2];
+	//由于js中的数组都是Object数组,所以它默认按照字符串由小到大进行排序
+	arr2.sort(function(a,b){
+		return b - a;
+	});
+	console.log(arr2);
+	//4.Math
+	var num = parseInt(Math.random() * 100);
+	console.log(num);
+	//5.Date
+		//1).如何创建日期对象
+		var d1 = new Date();
+		console.log(d1);
+		var d2 = new Date("2019/10/10  00:00:00");
+		console.log(d2);
+		//2).如何格式化日期
+		console.log(d1.toLocaleDateString());
+		console.log(d2.toLocaleDateString());
+		//3).读写时间分量
+		var y = d1.getFullYear();//获取年
+		var m = d1.getMonth() + 1;//获取月
+		var d = d1.getDate();//获取日
+		var h = d1.getHours();//获取时
+		var mm = d1.getMinutes();//获取分
+		var s = d1.getSeconds();//获取秒
+		console.log(y + ":" + m + ":" + d + " " + h + ":" + mm + ":" + s);
+		
+	//6.RegExp(正则表达式)
+		//1).如果创建正则对象
+		var str = "you can you up,no can no bb";
+		var reg = /no/;
+		//2).正则对象的方法test
+			//检测字符串内是否包含和正则相匹配的子串
+		//3).正则对象的方法exec()
+			//从字符串内找到与正则相匹配的第一个子串
+			//普通模式
+			var reg3 = /no/;
+			console.log(reg3.exec(str));
+			
+			//全局模式
+			//第一次调用从字符串内找到与正则相匹配的第一个子串
+			//第n次调用,从字符串内找到与正则相匹配的第n个子串
+			/如果
+			var reg2 = /no/g;
+			console.log(reg2.exec(str));
+			
+			
+			var reg4 = /^\w{5,10}$/;
+			if(reg4.test(name)){
+				console.log("满足要求");
+			}else{
+				console.log("不满足要求");
+			}
+			//判断邮箱是否和正则相匹配
+			
+			
+		
+	
+</script>
+<body>
+
+</body>
+</html>
