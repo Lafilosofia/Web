@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>window</title>
+</head>
+<!-- Browser Object Mode(BOM)时浏览器对象模型,用来访问和操纵浏览器窗口,
+是javascript有能力与浏览器"对话",通过BOM,可移动窗口,更改状态栏文本,执行其他不与页面发生直接联系的操作
+DOM:文档对象模型,用来操作文档,定义了访问和操作html,文档的标准方法,
+应用程序通过对DOM树的操作来实现对HTML文档的操作-->
+
+<script type="text/javascript">
+	function f1(){
+		alert("你好");
+	}
+	
+	function f2(){
+		//返回boolean类型
+		var b = confirm("此文件删除");
+		if(b == false){
+			console.log("取消了");
+		}else{
+			console.log("删除成功")
+		}
+	}
+	
+	function f3(){
+		var r = prompt("你吃的什么?");
+		console.log(r);
+	}
+	
+	//周期性定时器
+	function f4(){
+		//定时器(执行的任务,毫秒数)
+		setInterval(function (){
+		//任务	
+		console.log(n --);
+		if(n == 0){
+			clearInterval(id);//清除定时器的id
+			console.log("爆炸了!");
+			}
+		},1000);
+	/*定时器类似于线程,当前方法法f4类似于主线程,定时器类似于支线程,而主线程与支线程是并发的
+	  所以在启动定时器后,线程并不等待,而是立刻向下执行,所以立刻输出"结束了",定时器却要在1秒后执行*/
+	  
+	  	console.log("结束了!");
+	}
+	
+	//一次性定时器
+	function f5(){
+		var id;
+		id = setTimeout(function(){
+			console.log("当当当");
+		},5000)
+	}
+	
+	function(){
+		cl
+	}
+</script>
+<body>
+	<input type = "button" value = "按钮1" onclick = "f1()"/>
+	<input type = "button" value = "按钮2" onclick = "f2()"/>
+	<input type = "button" value = "按钮3" onclick = "f3()"/>
+	
+	<input type = "button" value = "按钮4" onclick = "f4()"/>
+	<input type = "button" value = "闹铃" onclick = "f5()"/>
+	<input type = "button" value = "按钮6" onclick = "f6()"/>
+</body>
+</html>
