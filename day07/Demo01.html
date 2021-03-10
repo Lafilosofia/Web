@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<script type="text/javascript">
+	//1.screen对象包含有窗口屏幕信息,常常用于获取屏幕的
+	//分辨率和色彩常用属性
+	//alert(screen.width);//获取浏览器的宽
+	//alert(screen.height);//获取浏览器的高
+	//2.history对象包含用户在浏览器中访问的地址常用属性(掌握)
+		//history.back();//后退
+		//history.forward();//前进
+		function forward(){
+			history.forward();
+		}
+		function back(){
+			history.back();
+		}
+	//3.location对象包含有关当前地址信息,常用于获取和改变当前浏览器的网页(掌握)
+		function baidu(){
+		//location.herf = "https://www.baidu.com";//在本网页中打开
+		window.open("https://www.baidu.com");//重新打开一个新的网页
+		}
+	//4.navigator.userAgent对象包含有关浏览器的信息常用于获取客户端浏览器的操作系统(了解)
+		function cc(){
+		alert(navagator.userAgent);
+	}
+	//5.event代表事件的状态,例如触发event对象的元素,鼠标的位置及状态,按下的键等,event对象
+	//只在事件发生过程中才有效(了解)
+	function show(){
+		alert(
+				"altKey" + window.event.altKey + "shiftKey" + window)
+	}
+		
+</script>
+<body>
+	<a href = "index.html">测试history中的后退</a>
+	<button onclick = "forward()">前进</button>
+	<button onclick = "back()">后退</button>
+	<button onclick = "baidu()">百度</button>
+	<button onclick = "cc()">查看我的操作系统属性</button>
+</body>
+</html>
