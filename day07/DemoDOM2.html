@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>查询,增加,删除节点</title>
+</head>
+<script type="text/javascript">
+	window.onload = function(){
+		//根据name查询节点
+		var radios = document.getElementsByTagName("sex");
+		console.log(radios);
+		
+		//根据层次查询节点(熟练掌握)
+		//1.查询父节点
+		var xn = document.getElementById("xn");
+		//xn的父节点
+		var ul = xn.parentNode;
+		console.log(ul);
+		//2.查询节点的孩子
+		var lis = ul.childNodes;
+		console.log(lis);
+		//查询父节点的父节点
+		var a = document.getElementById("find");
+		var u = a.parentNode.parentNode;
+		console.log(u);
+	}
+</script>
+<body>
+	<p>
+		性别:
+		<input type = "radio" name = "sex"/>男
+		<input type = "radio" name = "sex"/>女
+	</p>
+	
+	<ul id = "city">
+		<li>昆明</li>
+		<li>青岛</li>
+		<li id = "xn">西安</li>
+		<li>重庆</li>
+		<li>乌鲁木齐</li>
+	
+	
+	
+	</ul>
+</body>
+</html>
