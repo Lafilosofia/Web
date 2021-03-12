@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>冒泡机制</title>
+<style type="text/css">
+	div{
+		background : green;
+		width : 300px;
+		padding : 30px;
+	}
+	
+	p{
+		background : red;
+		padding : 20px;
+		text-align : center;
+	}
+	
+	input{
+		background : orange;
+	}
+</style>
+</head>
+<script type="text/javascript">
+	function f1(e){
+		alert("奥利给!")
+		//取消冒泡
+		//e.stopProagation();
+		//在IE浏览器下通过设置event对象的cancelBubble()(取消冒泡)
+		//e.cancelBubble();
+		if(e.stopPropagation){	//不是IE浏览器
+			e.stopPropagation();
+		}else{	//是IE浏览器
+			e.cancelBubble();
+		}
+	}
+</script>
+<body>
+	<div onclick = "alert('ZBC!')">
+		<p onclick = "alert('无情哈拉少!')">
+			<input type = "button" value = "秘制小汉堡" onclick = "f1(event)"/>
+		</p>
+			
+	</div>
+</body>
+</html>
