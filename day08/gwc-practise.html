@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>商品真划算</title>
+<style type="text/css">
+	table{
+		width : 65px;
+		margan : 0px;
+		border-collapse: collapse;/*为表格设置合并边框模型*/
+	}
+	
+	table th,table td{
+		boder : 2px soild #aaa;
+		padding : 12px 5px;		/*内容与边框的距离*/
+	}
+	
+	/*
+		table tr td : last-child{
+			text-align : center;
+		}
+	
+	*/
+	
+	.input{
+		text-align : center;
+	}
+	
+	table th{
+		background-color : white;
+	}
+	
+	h1{
+		text-align : center;
+	}
+</style>
+
+<script type="text/javascript">
+	function add_shopcar(btn){
+		//获取tr节点
+		var tr = btn.parentNode.parentNode;
+		//获取tr节点下的所有子节点td
+		var tds = tr.getElementsByTagName("td");
+		//获取当前对象的商品名字
+		var name = tds[0].innerHTML;
+		//获取购物车主体tbody节点
+		var tbody = document.getElementById("tbody");
+		//获取tr后遍历tbody中的trs
+		for(var i = 0;i < trs.length;i ++){
+			//将tr中的元素以数组的方式找出下标为1(及商品名)的td
+			var oldName = trs[i].getElementsByTagName("td")[0].innerHTML;
+			if(oldName == name){
+				//获取tr中的第三个td(购买数量)
+				var td = trs[i].getElementsByTagName("td")[2];
+				//获取td数组中下标为2的元素(加号按钮)
+				var input = td.getElementsByTagName("input")[2];
+				//调用加号方法
+				increase(input);
+				return;
+			}
+		}
+		
+		//获取当前对象的商品单价
+		var price = tds[1].innerHTML;
+		console.log(name + "," + price);
+		//创建新节点tr,添加在tbody的尾部
+		var tbody_tr = document.createElement("tr");
+		//给tbody_tr添加内容(列td)
+		tbody_tr.innerHTML = "<td>" + name +"</td>"
+						   + "<td align = 'center'>" + price + "</td>"
+						   + "<td align = 'center'>" 
+						   + "<input type = 'button' value = '-' onclick = 'decrease(this)'/>"
+						   + "<inpur = 'text' size = '3' value = '1' readonly/>"
+						   + "<input type = 'button' value = '+' onclick = 'increase(this)'/>"
+						   + "</td>" 
+						   + "<td align = 'center'>" + price + "</td>"
+						   + "<input type = 'text' value = 'x' onclick = 'cancel(this)'/>"
+						   + "</td>"
+		
+		//给表主体<tbody>节点尾部添加子节点
+		tbody.appendChild(tbody_tr);
+		ss();
+		
+		//数量增加
+		function increase(add){
+			//获取当点对象的父节点
+			var td = add.parentNode;
+			//获取td节点下第二个元素的字节
+			var v = td.getElementByTagName("input")[1];
+			//td节点下的第二个人元素节点v的值自增
+			var next = ++v.value;
+			//获取当前对象的tr节点
+			var tr = td.parentNode;
+			//获取tr节点下的所有子节点td
+			var td = getElementsByTagName("td");
+			//tr下的第二个节点所表示即为当前对象的单价
+			var price = tds[1].innerHTML;
+			//商品单价 * 数量即为总金额
+			var sum = next * price;
+			//把总金额的值赋给当前对象tr的下标为4的总金额
+			tds[3].innerHTML = sum;
+			ss();
+		}
+	}
+</script>
+</head>
+<body>
+	<hi>双11狂欢购物节</hi>
+		<table>
+			<tr>
+				<th>商品</th>
+				<th>单价(元)</th>
+				<th>颜色</th>
+				<th>库存</th>
+				<th>好评率</th>
+				<th>操作</th>
+			</tr>
+			
+			<tr>
+				<td>罗技M185鼠标</td>
+				<td>80</td>
+				<td>黑色</td>
+				<td>893</td>
+				<td>98%</td>
+				<td class = "input"><input type = "button" value = "加入购物车" onclick = "add_shopcar(this)"></td>
+			</tr>
+			
+			<tr>
+				<td>微软X470键盘</td>
+				<td>150</td>
+				<td>黑色</td>
+				<td>8938</td>
+				<td>95%</td>
+				<td class = "input"><input type = "button" value = "加入购物车" onclick = "add_shopcar(this)"></td>
+			</tr>
+				
+			<tr>
+				<td>华为P40Pro手机壳</td>
+				<td>60</td>
+				<td>透明</td>
+				<td>456</td>
+				<td>97%</td>
+				<td class = "input"><input type = "button" value = "加入购物车" onclick = "add_shopcar(this)"></td>
+			</tr>
+			
+			<tr>
+				<td>蓝牙耳机</td>
+				<td>130</td>
+				<td>白色</td>
+				<td>5683</td>
+				<td>99%</td>
+				<td class = "input"><input type = "button" value = "加入购物车" onclick = "add_shopcar(this)"></td>
+			</tr>
+			
+			<tr>
+				<td>小米蓝牙音箱</td>
+				<td>280</td>
+				<td>橘黄色</td>
+				<td>689</td>
+				<td>99%</td>
+				<td class = "input"><input type = "button" value = "加入购物车" onclick = "add_shopcar(this)"></td>
+			</tr>
+		</table>
+		
+		<h1>购物车</h1>
+		<!-- 表头 -->
+			<table>
+			
+				<thead>
+				
+				</thead>
+				
+		<!-- 表尾 -->
+				<tfoot>
+					<tr>
+						<td colspan = "4"></td>
+						<td id = "sum"></td>
+					</tr>
+				</tfoot>
+			</table>
+</body>
+</html>
