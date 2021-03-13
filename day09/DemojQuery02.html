@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jq演示</title>
+</head>
+<script type="text/javascript" src = "../jquery-3.1.1.min.js"></script>
+<script type="text/javascript">
+	function bigger(){
+		/*
+		利用js实现颜色
+		var ps = document.getElementsTagName("p");
+		for(var i = 0;i < ps.length;i ++){
+			ps[i].style.color = "red";
+		}
+		*/
+		
+		//给p节点设置颜色
+		//$("p").css("color","red");
+		//给p节点设置字体大小
+		//$("p").css("font-size","25px");
+		
+		//获取p的字体默认大小
+		var size = $("p").css("font-size");
+		console.log(size);
+		//把字体的大小25px变成可以计算的数字(替换)
+		size = size.replace("px","");
+		console.log(size);
+		$("p").css("font-size", ++ size +"px");
+		$("p").css("color","blue");
+		
+	}
+	
+	function smaller(){
+		var size = $("p").css("font-size");
+		console.log(size);
+		size = size.replace("px","");
+		$("p").css("font-size", -- size + "px");
+		$("p").css("color","red");
+	}
+</script>
+<body>
+	<input type  = "button" value = "+" onclick = "bigger()"/>
+	<input type = "button" value = "-" onclick = "smaller()"/>
+	<p>jQuery是一个javaScirpt库</p>
+	<p>jQuery极大的简化了javaScript编程</p>
+	<p></p>
+	
+</body>
+</html>
