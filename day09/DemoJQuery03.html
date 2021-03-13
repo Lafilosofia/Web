@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jQurey操作内容,值,属性的演示</title>
+</head>
+<script type="text/javascript" src = "../jquery-3.1.1.min.js"></script>
+<script type="text/javascript">
+	$(function f1(){	//当页面加载后完成
+		//获取第一个p节点及其内容
+		var p1 = $("p:eq(0)");
+		console.log(p1);
+		var h = $("p:eq(0)").html();
+		console.log(h);
+		//获取第一个p节点文本
+		var t = $("p:eq(0)").text();
+		console.log(t);
+		//给<img>标签设置属性
+		$("img").attr("src","../image/类.png");
+		//获取文本框的内容
+		console.log($("input:eq(1)").val);	//方法1
+		console.log($("#in").val);		//方法2
+		//为文本赋值(修改内容)
+		$("#in").val("秘制小汉堡");
+		//设置input节点中的值(:button  :text)选取带有type属性的值
+		console.log($(":text").val());
+		console.log($(":button").val());
+	});
+</script>
+<body>
+	<p>jQuery支持<b>读写</b>节点</p>
+	<p>jQuery支持<b>增删</b>节点</p>
+	<input type = "button" value = "戳这里!" onclick = "f1()">
+	<img alt="图片显示失败" src="../images/框架.png"> 
+	<input id= "in" type = "text" value = '测试'/>
+</body>
+</html>
