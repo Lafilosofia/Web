@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<script type="text/javascript" src = "../jquery-3.1.1.min.js">
+</script>
+<script type="text/javascript">
+		//window.onload = function(){		//当页面加载完后执行
+		//var gz = document.getElementById("gz");		//获取gz节点
+		//alert(gz.innerHTML);		//获取gz节点中的内容
+		//var gz = $("#gz");
+		//alert(gz.html());
+	//}
+		
+		//用jQuery框架来做(当页面加载后执行)
+		//方法1:
+		//	$(document).ready(function(){
+		//		alert(1);
+		//	});
+		//方法2:
+		//	$(function(){
+		//		alert(1);
+		//	});
+			
+		//当页面加载完后执行
+		$(function(){
+			//1.基本选择器
+			console.log($("li"));
+			console.log($("li").length);
+			console.log($("#gz"));
+			console.log($(".sz"));
+			console.log($("ul li"));
+			console.log($("ul > li"));
+			//2.层次选择器
+			console.log($("#gz + li"));
+			//或
+			console.log($("#gz").next());	//.next下一个节点
+			//选择广州所有弟弟们
+			console.log($("#gz~"));
+			//3.表单选择器
+			console.log($("input[checked]").val());	//与61行对应要么都写checked要么都不写/checked为input中的属性
+			console.log($("#input").val());
+		});
+	
+</script>
+
+<body>
+	<ul>
+		<li>北京</li>
+		<li>上海</li>
+		<li class = "sz">深圳</li>
+		<li id = "gz">广州</li>
+		<li>香港</li>
+		<ol>
+		<li>天津</li>
+		</ol>
+	</ul>
+	<input  id = "input" type = "text" value = "老八"/>
+	<input type = "radio" name = "sex" value = "奥里给" checked/>无情哈拉少	<!-- checked为默认 -->
+	<input type = "radio" name = "sex" value = "秘制小汉堡" />zbc
+</body>
+</html>
