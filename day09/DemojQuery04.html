@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jQuery对样式的操作</title>
+<style type="text/css">
+	.big{
+		font-size: 25px;
+		font-weight: border;/*加粗*/
+	}
+	
+	.red{
+		color: red;
+	}
+</style>
+</head>
+<script type="text/javascript" src = "../jquery-3.1.1.min.js"></script>
+<script type="text/javascript">
+	function f1(){
+		$("p:eq(1)").css("color","red");
+		$("p:eq(1)").css("font-size","20px");
+	}
+	
+	$(function(){
+		//toggleClass()切换类的属性值
+		setInterval(function(){
+			$("p").toggleClass("big").toggleClass("red");
+		},1000);
+	});
+</script>
+<body>
+	<p>jQuery对样式操作提供了很友好的支持</p>
+	<p>jQuery框架使得程序员少写了很多代码</p>
+	<button onclick = "f1()">点击我变色变大</button>
+</body>
+</html>
