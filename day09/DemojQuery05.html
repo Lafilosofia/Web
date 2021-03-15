@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jq对DOM的增加,删除,插入</title>
+</head>
+
+<script type="text/javascript" src = ../jquery-3.1.1.min.js/></script>
+<script type="text/javascript">
+	function fn1(){
+		//js的写法
+		/*
+		var li = document.createElement("li");
+		li.innerHTML = "西安";
+		*/
+		//jq的写法
+		//创建li节点
+		var li = $("<li>西安</li>");
+		//在ul节点下的子节点末尾追加新的节点li
+		$("ul").append(li);
+		//在ul节点下的子节点末尾追加新的节点li
+		$("ul").prepend(li);	//前后最佳不能同时进行
+	}
+	
+	function fn2(){
+		//创建节点
+		var li = $("<li>乌鲁木齐</li>")
+		//在广州前面插入节点
+		$("#gz").before(li);
+		//在广州后面插入节点
+		$("#gz").after(li);	//前后插入不能同时进行(默认执行后面的)
+	}
+	
+	function fn3(){
+		//删除广州节点
+		$("li").remove("#gz");
+		$("li").remove("li:eq(3)");
+		//删除包含"州"字的节点
+		$("li").remove("li:contents(州)");
+	}
+</script>
+<body>
+	<div>
+		<input type = "button" value = "追加" onclick = fn1()/>
+		<input type = "button" value = "插入" onclick = fn2()/>
+		<input type = "button" value = "删除" onclick = fn3()/>
+	</div>
+	
+	<ul>
+		<li>北京</li>
+		<li>上海</li>
+		<li id = "gz">广州</li>
+		<li>深圳</li>
+		<li>杭州</li>
+	</ul>
+</body>
+</html>
