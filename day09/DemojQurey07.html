@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>联动查询</title>
+</head>
+<script type="text/javascript">
+	var cities = [
+	              ["西安市","汉中市","渭南市","延安市"],
+	              ["昆明市","丽江市","西双版纳"],
+	              ["成都","绵阳市","广元市"]
+	              ]
+	
+	function chg(){
+		//获取对应index
+		var value = $("#provice option:selected").val();
+		var value = $("#provice").val();
+		//清空旧城市
+		$("#city").html("<option>-请选择-</option>");
+		//获取二级城市数据
+		var pcities = cities[value];
+		for(var i in pcities){
+			//创建新节点
+			var op = $("<option>" + pcities[i] + "</option");
+			$("#city").append(op)
+		}
+	}
+	
+</script>
+<body>
+	省:<select onchange = "chg()" id = "provice">
+			<option value = "-1">--请选择--</option>	
+			<option value = "0">陕西省</option>
+			<option value = "1">云南省</option>
+			<option value = "2">四川省</option>
+	   </select>
+	
+	市:<select>
+			<option value = "-1">-请选择-</option>
+	   </select>
+	
+</body>
+</html>
