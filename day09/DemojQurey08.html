@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>通过节点关系查找结点</title>
+<script type="text/javascript" src = "../jqurey-3.1.1.min.js"></script>
+</head>
+<script type="text/javascript">
+	$(function(){
+		//获取广州节点的父节点
+		var z = $("#gz").parent();
+		console.log(z);
+		//获取ul节点的所有子节点
+		//document.getElementsByTagName("li"))
+		var chs = $("ul").children();
+		console.log(chs);
+		//给ul下的所有子节点添加背景色
+		$("ul").children().css("background","green");
+		//设置"广州"节点的所有兄弟节点的背景色
+		$("#gz").silbings().css("background","blue");
+		//获取"广州"节点的所有兄弟的第二个节点的内容
+		var ss = $("#gz").siblings().eq(1).html();
+		console.log(ss);
+		//设置"广州"的背景色
+		$("#gz").css("background","#8A89E3");
+		//设置"广州"的节点的下一个兄弟背景色
+		$("#gz").next().css("background","orange");
+		//设置"广州"的节点的所有弟弟的背景色
+		$("#gz").nextAll().css("background","pink");
+		//设置"广州"的节点的上一个兄弟背景色
+		$("#gz").prev().css("background","#2A8F89");
+		
+	});
+</script>
+<body>
+	<ul>
+		<li>北京</li>
+		<li class = "ss">上海</li>
+		<li id = "gz">广州</li>
+		<li>深圳</li>
+		<li>杭州</li>
+	
+	</ul>
+</body>
+</html>
