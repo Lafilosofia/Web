@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jq对样式的增加和删除</title>
+<style type="text/css">
+	.sty{
+		color: red;	
+	}
+	
+	.sty2{
+		color: blue;
+	}
+</style>
+</head>
+<script type="text/javascript">
+	function f1(){
+		//给p节点增加class = "sty"
+		$("p").addClass("sty");
+	}
+	
+	function f2(){
+		//删除p节点的属性class = "sty"并且增加一个属性class = "sty2"
+		$("p").removeClass("sty").addClass("sty2");
+	}
+</script>
+<body>
+	<button onclick = "f1()">点击我(增加属性)</button>
+	<button onclick = "f2()">点击我(删除属性)</button>
+	<p>iQurey方便了我们的程序员,我们很喜欢她</p>
+</body>
+</html>
