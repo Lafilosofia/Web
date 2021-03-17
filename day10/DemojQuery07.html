@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>动画演示</title>
+<style type="text/css">
+	#d div{
+		width: 200px;
+		height: 200px;
+		background: orange;
+		opacity: 0.3:
+	}
+	
+	.img3{
+		position: relative;
+	}
+</style>
+</head>
+<script type="text/javascript" src = "../jquery-3.1.1.min.js"></script>
+<script type="text/javascript">
+	function hide(){
+		$("img:eq(0)").hide(2000);
+	}
+	
+	function show(){
+		$("img:eq(0)").show(2000);
+	}
+	
+	function down(){
+		$("#id div").slideBown(2000);
+	}
+	
+	function up(){
+		$("#d div").slideUp(2000);
+	}
+	
+	function hint(){
+		//渐渐淡出
+		$("img:eq(1)").fadeOut(2000);
+		//渐渐淡入
+		$("img:eq(1)").fadeIn(2000);
+		setInterval(function(){
+			$("img:eq(1)").fadeToggle(2000);
+		},2000);
+		
+	}
+	
+	//自定义动画
+	function diy(){
+		//animate({样式},毫秒数)
+		//需要位置进行操作,要记得首先把元素的css position属性设置为 relative.fixed.
+		$("img:eq(2)").animate({"left":"500px"},2000).animate({"top":"500px"},2000).animate({"left":"0px"},2000).animate({"top":"0px"},2000);//相当于相对原来位置没有距离 则返回原来的位置坐标
+	}
+</script>
+<body>
+	<div>
+		<input type = "button" value = "展开" onclick = "show()"/>
+		<input type = "button" value = "隐藏" onclick = "hide()"/>
+		<input type = "button" value = "打开" onclick = "down()"/>
+		<input type = "button" value = "收起" onclick = "up()"/>
+		<input type = "button" value = "提示" onclick = "hint()"/>
+		<input type = "button" value = "动动" onclick = "diy()"/>
+	</div>
+	
+	<div id = "d">
+		<img src = "../img/7.png"/>
+		<img src = "../img/6.png"/>
+		<img class = "img3" src = "../img/9.png"/>
+		<div class = "div"></div>
+	</div>
+</body>
+</html>
