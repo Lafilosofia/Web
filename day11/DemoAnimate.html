@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>疯狂的呆子</title>
+<style type="text/css">
+	.img{
+		margin-bottom: 500px;
+		position: relative;
+	}
+</style>
+</head>
+<script type="text/javascript" src = "../jquery-3.1.1.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$("img").hover(function(){
+			$(this).animate({"top","500px"},1000)
+			.animate({"top":"0px"},1000)
+			.animate({"top":"400px"},1000)
+			.animate({"top":"0px"},1000)
+			.animate({"top":"300px"},1000)
+			.animate({"top":"0px"},1000)
+			.animate({"top":"200px"},1000)
+			.animate({"top":"0px"},1000)
+			.animate({"top":"100px"},1000)
+			.animate({"top":"0px"},1000)
+		});
+	});
+</script>
+<body>
+	<img src = "../img/01.png"/>
+	<img src = "../img/20.png"/>
+	<img src = "../img/03.png"/>
+	<img src = "../img/04.png"/>
+	<img src = "../img/05.png"/>
+	<img src = "../img/06.png"/>
+</body>
+</html>
